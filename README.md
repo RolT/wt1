@@ -6,3 +6,4 @@ Feature added :
      
 Requirement :
     You need to configure project name, topic name and the secret json filepath in config.properties
+    You also have to get you secret.json from you google cloud console
