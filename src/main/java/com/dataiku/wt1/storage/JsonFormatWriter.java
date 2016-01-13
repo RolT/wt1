@@ -76,11 +76,11 @@ public class JsonFormatWriter {
         sb.append(req.browserLanguage);
         sb.append("\", tz_offset:\"");
         sb.append(req.tzOffset);
-        sb.append("\", ");
+        sb.append("\" ");
         if (thirdPartyCookies) {
-            sb.append("global_visitor_id=\"");
+            sb.append(", global_visitor_id=\"");
             sb.append(req.globalVisitorId);
-            sb.append("\",");
+            sb.append("\"");
         }
 
         if (req.visitorParams != null && inlinedVP.size() > 0) {
@@ -101,13 +101,13 @@ public class JsonFormatWriter {
     private static void doInline(Map<String, String[]> decoded, Set<String> inlineRules, StringBuilder sb) {
         for (String toInline : inlineRules) {
             String[] values = decoded.get(toInline);
-            sb.append(toInline+"=\"");
+            sb.append(", "+toInline+"=\"");
             if (values != null && values.length > 0) {
                 sb.append(escape(values[0]));
             } else {
                 sb.append("");
             }
-            sb.append("\", ");
+            sb.append("\" ");
         }
     }
 }

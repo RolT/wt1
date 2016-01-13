@@ -69,9 +69,6 @@ public class GCPubSubStorageProcessor implements TrackingRequestProcessor{
                 Utils.parseCSVToSet(params.get(ConfigConstants.INLINED_SESSION_PARAMS)),
                 Utils.parseCSVToSet(params.get(ConfigConstants.INLINED_EVENT_PARAMS)));
 
-        System.out.println(getServletContext().getRealPath("/strs.properties") );
-
-
         //Set PubSub Client
         client = PubsubUtils.getClient(secretPath);
     }
